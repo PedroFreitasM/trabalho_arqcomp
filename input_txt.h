@@ -10,9 +10,11 @@ int get_int(char* linha, int* pos){
 
     while(linha[*pos] != ';' && linha[*pos] != '\0'){
         num = num * 10 + (linha[*pos] - '0'); // gambiarra pra transformar string em int
-        (*pos)++
+        (*pos)++;
     }
-
+    if(linha[*pos] == ';'){
+    (*pos)++;
+    }
     return num;
 }
 
