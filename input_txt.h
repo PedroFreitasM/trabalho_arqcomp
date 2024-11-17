@@ -21,7 +21,7 @@ int get_int(char* linha, int* pos){
 
 // Pega uma linha inteira do arquivo, começando onde o ponteiro está e indo até o \n ou EOF
 char *get_linha (FILE* arq){
-    int pos;
+    int pos = 0;
     char *linha = (char *)malloc(BUFFER);
     if(!linha){
         printf("Falha na alocação da linha\n");
