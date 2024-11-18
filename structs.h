@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <input_txt.h>
+#include "input_txt.h"
 
 #define DISCO 0
 #define FITA_MAG 1
@@ -9,7 +9,8 @@
 typedef struct io{
     int tipo;
     int tempo;
-}
+    int tempo_inicio;
+} io;
 
 typedef struct Processo {
     int pid;
@@ -74,9 +75,11 @@ processo *criar_processo(char* linha){
         for(int j=0; j < quant_io; j++){
             int tipo_io = get_int(linha, &i);
             int tempo_io = get_int(linha, &i);
-            printf("Tipo de IO: %d \n Tempo do IO: %d\n\n", tipo_io, tempo_io);
+            int tempo_inicio = get_int(linha, &i);
+            printf("Tipo de IO: %d \n Tempo do IO: %d \n Momento de início: %d \n\n", tipo_io, tempo_io, tempo_inicio);
             p->ios[j].tipo = tipo_io;
             p->ios[j].tempo = tempo_io;
+            p->ios[j].tempo_inicio = tempo_inicio;
         }
     }
     p->prox_io = 0;
