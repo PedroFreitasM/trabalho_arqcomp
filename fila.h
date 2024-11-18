@@ -1,29 +1,16 @@
 #include "structs.h"
 #include "stdbool.h"
 
-typedef struct Link
-{
-    Processo processo;
-    Link *link;
+void queueInit(queue *q);
 
-} No;
+int queueTam(queue q);
 
-typedef struct
-{
-    No *inicio, *fim;
+bool queueVazio(queue q);
 
-} Fila;
+void queuePrint(queue q);
 
-void filaInit (Fila *fila);
+bool queueInserir(queue *q, processo *np);
 
-void filaTamanho (Fila fila);
+processo *queueRemover(queue *q);
 
-bool filaVazia (Fila fila);
-
-void filaPrint (Fila fila);
-
-bool filaInserir (Fila *fila);
-
-Processo filaRemover (Fila *fila);
-
-void filaLimpar (Fila *fila);
+void queueReset(queue *q);
